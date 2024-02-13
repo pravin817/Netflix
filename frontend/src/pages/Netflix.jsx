@@ -8,9 +8,12 @@ import BackgroundImage from "../assets/home.jpg";
 import MovieLogo from "../assets/homeTitle.webp";
 
 import Navbar from "../components/Navbar";
+import { useNavigate } from "react-router-dom";
 
 const Netflix = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+
+  const navigate = useNavigate();
 
   window.onscroll = () => {
     setIsScrolled(window.scrollY === 0 ? false : true);
@@ -32,7 +35,12 @@ const Netflix = () => {
             <img src={MovieLogo} alt="Movie Logo" />
           </div>
           <div className="buttons flex">
-            <button className="flex j-center a-center">
+            <button
+              className="flex j-center a-center"
+              onClick={() => {
+                navigate("/player");
+              }}
+            >
               <FaPlay /> Play
             </button>
 
